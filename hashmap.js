@@ -1,15 +1,19 @@
 export default class HashMap{
     
-    constructor(loadFactor, capacity){
+    constructor(loadFactor = 0.75, capacity = 16){
         this.loadFactor = loadFactor;
         this.capacity = capacity;
-        //add this.buckets?
-        //add this.size?
+        this.buckets = new Array(capacity).fill(null);
+        this.size = 0;
     }
 
     //takes a key and produces a hashcode
     hash(key){
-
+        let hashcode = 0;
+        for(const char of key){
+            hashcode += hashcode * 31 + char.charCodeAt(0);
+        }
+        return hashcode % this.capacity;
     }
 
     //takes an argument of a key and value and assigns the value to the key
