@@ -4,5 +4,11 @@
     "@babel/preset-env": "^7.29.7",
     "babel-jest": "^30.4.1",
     "jest": "^30.4.2"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
+    "test": "jest"
   }
 }
