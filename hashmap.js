@@ -1,6 +1,8 @@
+import LinkedList from "./linkedlist.js";
+
 export default class HashMap{
     
-    constructor(loadFactor = 0.75, capacity = 16){
+    constructor(loadFactor = 0.8, capacity = 16){
         this.loadFactor = loadFactor;
         this.capacity = capacity;
         this.buckets = new Array(capacity).fill(null);
@@ -16,16 +18,44 @@ export default class HashMap{
         return hashcode % this.capacity;
     }
 
+
+    
+
     //takes an argument of a key and value and assigns the value to the key
     set(key, value){
-        //hash the key. (ONLY the key, NOT the value)
+        //hash the key to create bucketIndex
+        const bucketIndex = this.hash(key);
+
+        //check if the bucket is empty (null)
+        //if bucket IS empty, create a new linkedList
+        if(this.buckets[bucketIndex] === null){
+            this.buckets[bucketIndex] = new LinkedList();
+        }
+
         //check if the key already exists (maybe use has() method?)
-        //if the key already exists in this bucket, overwrite its value
-        //
-        //
+        for(let i = 0; i < this.buckets.length; i++){
+            if(this.buckets[i].contains(key)){
+                //if the key already exists in this bucket, overwrite its value
+            }
+        }
+
+        //if bucket is NOT empty, assign current object as .next (tail node)
+        this.buckets[bucketIndex].append();
+        
+        //create an object {} with the key and value passed in
+        const object = {
+            key: key,
+            value: value
+        }
+        //store that object in the corresponding bucket.
+
         //increment the this.size property everytime a key is set
+        this.size++;
         //check after incrementing if the loadFactor has been met. 
-        //if the load factor has been met then increase the capacity*2
+        if(this.size / this.capacity >= this.loadFactor){
+            //if the load factor has been met then increase the capacity*2
+            this.capacity * 2;
+        }
     }
 
     //takes a key as an argument and returns the value 
