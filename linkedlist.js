@@ -6,12 +6,17 @@ class Node{
     }
 }
 
+
+    //I should also store this.tail to make appending O(1) --> right now O(n)
+    //also add a getNode(key) function that returns the entire node 
 export default class LinkedList{
     constructor(){
         this.head = null;
     }
 
+    
     //THIS NEEDS TO UPDATE DUPLICATE KEYS!!
+    //adds a key to the end of the linked list in a bucket
     append(key, value){
         const newNode = new Node(key, value);
         
@@ -21,13 +26,33 @@ export default class LinkedList{
         }
 
         let currentNode = this.head;
+
+        //maybe use find or contains to locate duplicate keys?
+
+        //not sure this if() will work, need to check tail node too
         while(currentNode.next !== null){
+            if(currentNode.key === key){
+                currentNode.value = value;
+            }
             currentNode = currentNode.next;
         }
 
         currentNode.next = newNode;
     }
 
+    //looks for the key in the bucket
+    find(key){
+        let currentNode = this.head;
+        while(currentNode !== null){
+            if(currentNode.key === key){
+                return currentNode;
+            }
+            currentNode = currentNode.next;
+        }
+        return null;
+    }
+
+    //will I actually need this?
     contains(key){
         let currentNode = this.head;
         while(currentNode !== null){
@@ -37,6 +62,7 @@ export default class LinkedList{
         return false;
     }
 
+    //removes a key from a bucket
     remove(key){
         if(!this.head) return;
 
