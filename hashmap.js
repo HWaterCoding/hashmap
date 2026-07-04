@@ -72,7 +72,17 @@ export default class HashMap{
 
     // takes a key as an argument to remove 
     remove(key){
-        
+        const bucketIndex = this.hash(key);
+
+        if(this.buckets[bucketIndex] === null) return false;
+
+        if(this.buckets[bucketIndex].find(key)){
+            this.buckets[bucketIndex].remove(key);
+            this.size--;
+            return true;
+        }
+
+        return false;
     }
 
     // returns the total number of keys stored in the hashmap
