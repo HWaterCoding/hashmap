@@ -8,6 +8,7 @@ class Node{
 
 
     //I should also store this.tail to make appending O(1) --> right now O(n)
+    //right now I have to loop through the entire list to append.
 export default class LinkedList{
     constructor(){
         this.head = null;

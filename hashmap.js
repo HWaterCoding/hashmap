@@ -45,6 +45,7 @@ export default class HashMap{
     get(key){
         //hash the key to determine which bucket it is in.
         const bucketIndex = this.hash(key);
+        //if bucket null return null
         if(this.buckets[bucketIndex] === null) return null;
         //check if that bucket contains the key you're looking for
         const node = this.buckets[bucketIndex].find(key);
@@ -53,7 +54,6 @@ export default class HashMap{
             return node.value
         } 
         
-        //if it doesn't, return null.
         return null;
 
     }
@@ -61,9 +61,13 @@ export default class HashMap{
     //returns true or false based on whether the key passed in exists within the hashmap
     has(key){
         //hash the key to determine which bucket it would be in.
+        const bucketIndex = this.hash(key);
         //go through the linked list in the bucket
+        if(this.buckets[bucketIndex] === null) return false;
         //check the key of every node in the bucket
-        //if the key matches, return true. If the tail is reached, return false
+        const node = this.buckets[bucketIndex].find(key);
+        
+        return node ? true: false;
     }
 
     // takes a key as an argument to remove 

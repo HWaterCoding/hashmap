@@ -9,10 +9,11 @@ const hashmap = new HashMap();
 console.log(hashmap.hash("hello")); //2
 console.log(hashmap.hash("as")); //2
 console.log(hashmap.hash("leloh")); //12
+console.log(hashmap.hash("goodbye")); //12
 
 //setting+appending functions (make sure list works)
-console.log(hashmap.set("hello", "world"));
-console.log(hashmap.set("as", "world"));
-console.log(hashmap.set("hello", "second"));
+// console.log(hashmap.set("hello", "world"));
+// console.log(hashmap.set("as", "world"));
+// console.log(hashmap.set("hello", "second"));
 
 //getting function

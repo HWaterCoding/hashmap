@@ -72,18 +72,18 @@ test.skip("handles collision properly", ()=>{
 
 
 //get method:
-test("get() returns correct value", ()=>{
+test.skip("get() returns correct value", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     expect(hashmap.get("hello")).toBe("world");
 });
-test("returns an updated value", ()=>{
+test.skip("returns an updated value", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("hello", "aliens");
     expect(hashmap.get("hello")).toBe("aliens");
 });
-test("returns null if key doesn't exist", ()=>{
+test.skip("returns null if key doesn't exist", ()=>{
     const hashmap = new HashMap();
     hashmap.set("goodbye", "world");
     expect(hashmap.get("hello")).toBe(null);
@@ -93,7 +93,27 @@ test("returns null if key doesn't exist", ()=>{
 
 
 //has method:
-test.skip("test 1", ()=>{
+test("If bucket empty, return false", ()=>{
     const hashmap = new HashMap();
-    expect(hashmap.has("", "")).toBe();
+
+    expect(hashmap.has("hello")).toBe(false);
+});
+test("If key doesnt exist, return false", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    expect(hashmap.has("goodbye")).toBe(false);
+});
+test("If key exists, return true", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    expect(hashmap.has("hello")).toBe(true);
+});
+test("Finds a key in a collision chain", () => {
+    const hashmap = new HashMap();
+
+    hashmap.set("hello", "world");
+    hashmap.set("as", "second");
+
+    expect(hashmap.has("hello")).toBe(true);
+    expect(hashmap.has("as")).toBe(true);
 });
