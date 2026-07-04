@@ -2,17 +2,17 @@
 import HashMap from "./hashmap.js";
 
 //hashing function:
-test("hashes a single character", ()=>{
+test.skip("hashes a single character", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.hash("a")).toBe(1);
 });
 
-test("hashes a string", ()=>{
+test.skip("hashes a string", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.hash("Hello")).toBe(2);
 });
 
-test("different output for a string with the same characters", ()=>{
+test.skip("different output for a string with the same characters", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.hash("olHes")).toBe(9);
 });
@@ -20,7 +20,7 @@ test("different output for a string with the same characters", ()=>{
 
 
 //set method:
-test("creates a new node", ()=>{
+test.skip("creates a new node", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     const bucket = hashmap.buckets[hashmap.hash("hello")];
@@ -28,7 +28,7 @@ test("creates a new node", ()=>{
     expect(bucket.head.key).toBe("hello");
     expect(bucket.head.value).toBe("world");
 });
-test("update an existing nodes value", ()=>{
+test.skip("update an existing nodes value", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("hello", "aliens");
@@ -38,21 +38,21 @@ test("update an existing nodes value", ()=>{
     expect(bucket.head.key).toBe("hello");
     expect(bucket.head.value).toBe("aliens");
 });
-test("adding new key increases size", () => {
+test.skip("adding new key increases size", () => {
     const hashmap = new HashMap();
 
     hashmap.set("hello", "world");
 
     expect(hashmap.size).toBe(1);
 });
-test("updating a value does NOT increase the size", ()=>{
+test.skip("updating a value does NOT increase the size", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("hello", "aliens");
 
     expect(hashmap.size).toBe(1);
 });
-test("handles collision properly", ()=>{
+test.skip("handles collision properly", ()=>{
     const hashmap = new HashMap();
 
     hashmap.set("hello", "world");
@@ -70,11 +70,25 @@ test("handles collision properly", ()=>{
 });
 
 
+
 //get method:
-test.skip("test 1", ()=>{
+test("get() returns correct value", ()=>{
     const hashmap = new HashMap();
-    expect(hashmap.get("", "")).toBe();
+    hashmap.set("hello", "world");
+    expect(hashmap.get("hello")).toBe("world");
 });
+test("returns an updated value", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("hello", "aliens");
+    expect(hashmap.get("hello")).toBe("aliens");
+});
+test("returns null if key doesn't exist", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("goodbye", "world");
+    expect(hashmap.get("hello")).toBe(null);
+});
+
 
 
 

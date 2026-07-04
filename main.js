@@ -3,6 +3,8 @@ import HashMap from "./hashmap.js";
 
 const hashmap = new HashMap();
 
+//see outputs here::
+
 //hashing function
 console.log(hashmap.hash("hello")); //2
 console.log(hashmap.hash("as")); //2
