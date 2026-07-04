@@ -72,13 +72,11 @@ export default class HashMap{
 
     // takes a key as an argument to remove 
     remove(key){
-        //again, hash the key to determine which bucket it would be in
-        //remove the node with the corresponding key, same as a regular linked list
+        
     }
 
     // returns the total number of keys stored in the hashmap
     length(){
-        //literally just return the size?
         return this.size;
     }
 

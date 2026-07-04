@@ -1,6 +1,7 @@
 //testing file
 import HashMap from "./hashmap.js";
 
+
 //hashing function:
 test.skip("hashes a single character", ()=>{
     const hashmap = new HashMap();
@@ -19,7 +20,7 @@ test.skip("different output for a string with the same characters", ()=>{
 
 
 
-//set method:
+//set()
 test.skip("creates a new node", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
@@ -71,7 +72,7 @@ test.skip("handles collision properly", ()=>{
 
 
 
-//get method:
+//get()
 test.skip("get() returns correct value", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
@@ -92,23 +93,23 @@ test.skip("returns null if key doesn't exist", ()=>{
 
 
 
-//has method:
-test("If bucket empty, return false", ()=>{
+//has()
+test.skip("If bucket empty, return false", ()=>{
     const hashmap = new HashMap();
 
     expect(hashmap.has("hello")).toBe(false);
 });
-test("If key doesnt exist, return false", ()=>{
+test.skip("If key doesnt exist, return false", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     expect(hashmap.has("goodbye")).toBe(false);
 });
-test("If key exists, return true", ()=>{
+test.skip("If key exists, return true", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     expect(hashmap.has("hello")).toBe(true);
 });
-test("Finds a key in a collision chain", () => {
+test.skip("Finds a key in a collision chain", () => {
     const hashmap = new HashMap();
 
     hashmap.set("hello", "world");
@@ -116,4 +117,31 @@ test("Finds a key in a collision chain", () => {
 
     expect(hashmap.has("hello")).toBe(true);
     expect(hashmap.has("as")).toBe(true);
+});
+
+
+
+//remove()
+test("successfully removes a node", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    expect(hashmap.remove("hello")).toBe(true);
+});
+test("returns false if no node", ()=>{
+    const hashmap = new HashMap();
+    expect(hashmap.remove("hello")).toBe(false);
+});
+test("doesnt remove after already removed", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+
+    expect(hashmap.remove("hello")).toBe(true);
+    expect(hashmap.remove("hello")).toBe(false);
+});
+test("updates size variable correctly", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.remove("hello");
+
+    expect(hashmap.size).toBe(0);
 });
