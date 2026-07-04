@@ -18,45 +18,31 @@ export default class HashMap{
         return hashcode % this.capacity;
     }
 
-
-    
-
     //takes an argument of a key and value and assigns the value to the key
     set(key, value){
         //hash the key to create bucketIndex
         const bucketIndex = this.hash(key);
 
-        //check if the bucket is empty (null)
-        //if bucket IS empty, create a new linkedList
+        //check if bucket empty. if empty, create linkedlist
         if(this.buckets[bucketIndex] === null){
             this.buckets[bucketIndex] = new LinkedList();
         }
 
-        //check if the key already exists (maybe use has() method?)
-        for(let i = 0; i < this.buckets.length; i++){
-            if(this.buckets[i].contains(key)){
-                //if the key already exists in this bucket, overwrite its value
-            }
+        //check if node with same key exists. if yes, rewrite value. if no, append node.
+        const node = this.buckets[bucketIndex].find(key);
+        if(node){
+            node.value = value;
+        } else if(node === null){
+            this.buckets[bucketIndex].append(key, value);
+            this.size++;
         }
 
-        //if bucket is NOT empty, assign current object as .next (tail node)
-        this.buckets[bucketIndex].append();
-        
-        //create an object {} with the key and value passed in
-        const object = {
-            key: key,
-            value: value
-        }
-        //store that object in the corresponding bucket.
-
-        //increment the this.size property everytime a key is set
-        this.size++;
-        //check after incrementing if the loadFactor has been met. 
-        if(this.size / this.capacity >= this.loadFactor){
-            //if the load factor has been met then increase the capacity*2
-            this.capacity * 2;
-        }
+        // remove this, just to check that it creates list/node properly
+        return this.buckets[bucketIndex];
     }
+
+    //1. hash the key
+
 
     //takes a key as an argument and returns the value 
     get(key){
@@ -106,3 +92,9 @@ export default class HashMap{
 
     }
 }
+
+
+//I think this will break the hashmap by creating new indexes.
+// if(this.size / this.capacity >= this.loadFactor){
+//     this.capacity *= 2;
+// }
