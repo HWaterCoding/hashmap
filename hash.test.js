@@ -58,6 +58,8 @@ test("handles collision properly", ()=>{
     hashmap.set("hello", "world");
     hashmap.set("as", "second");
 
+    expect(hashmap.hash("hello")).toBe(hashmap.hash("as"));
+
     const bucket = hashmap.buckets[hashmap.hash("hello")];
 
     expect(bucket.head.key).toBe("hello");
