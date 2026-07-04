@@ -12,6 +12,7 @@ console.log(hashmap.hash("leloh")); //12
 
 //setting+appending functions (make sure list works)
 console.log(hashmap.set("hello", "world"));
-console.log(hashmap.set("as", "second"));
+console.log(hashmap.set("as", "world"));
+console.log(hashmap.set("hello", "second"));
 
 //getting function

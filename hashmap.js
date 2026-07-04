@@ -41,12 +41,6 @@ export default class HashMap{
         return this.buckets[bucketIndex];
     }
 
-    //1. hash the key to get the bucket index (hash())
-    //2. look inside this bucket for the corresponding key (find())
-    //3. after returning this node, access it's value property
-    //4. return the value
-
-
     //takes a key as an argument and returns the value 
     get(key){
         //hash the key to determine which bucket it is in.
