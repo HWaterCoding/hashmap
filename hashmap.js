@@ -49,7 +49,19 @@ export default class HashMap{
 
     //takes a key as an argument and returns the value 
     get(key){
+        //hash the key to determine which bucket it is in.
+        const bucketIndex = this.hash(key);
+        if(this.buckets[bucketIndex] === null) return null;
+        //check if that bucket contains the key you're looking for
+        const node = this.buckets[bucketIndex].find(key);
+        //if it DOES, return the value that's assigned to the key.
+        if(node){
+            return node.value
+        } 
         
+        //if it doesn't, return null.
+        return null;
+
     }
 
     //returns true or false based on whether the key passed in exists within the hashmap
