@@ -20,7 +20,7 @@ test("different output for a string with the same characters", ()=>{
 
 
 //set method:
-test("set() creates a new node", ()=>{
+test("creates a new node", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     const bucket = hashmap.buckets[hashmap.hash("hello")];
@@ -52,7 +52,20 @@ test("updating a value does NOT increase the size", ()=>{
 
     expect(hashmap.size).toBe(1);
 });
+test("handles collision properly", ()=>{
+    const hashmap = new HashMap();
 
+    hashmap.set("hello", "world");
+    hashmap.set("as", "second");
+
+    const bucket = hashmap.buckets[hashmap.hash("hello")];
+
+    expect(bucket.head.key).toBe("hello");
+    expect(bucket.head.value).toBe("world");
+
+    expect(bucket.head.next.key).toBe("as");
+    expect(bucket.head.next.value).toBe("second");
+});
 
 
 //get method:
