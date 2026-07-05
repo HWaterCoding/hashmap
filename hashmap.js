@@ -101,8 +101,8 @@ export default class HashMap{
 
     // returns an array containing every key contained within the hashmap
     keys(){
-
         const keys = [];
+
         for(const bucket of this.buckets){
             if(bucket !== null){
                 bucket.eachNode(node =>
@@ -111,7 +111,7 @@ export default class HashMap{
             }
         }
 
-        if(keys.length === 0) return "You Have No Keys.";
+        // if(keys.length === 0) return "You Have No Keys.";
         return keys;
     }
 

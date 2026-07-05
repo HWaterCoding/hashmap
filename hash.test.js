@@ -196,24 +196,24 @@ test.skip("Clear multiple nodes at once", ()=>{
 test("returns a single key correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
-    expect(hashmap.keys()).toBe(["hello"]);
+    expect(hashmap.keys()).toEqual(["hello"]);
 });
 test("returns multiple keys correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodbye", "world");
-    expect(hashmap.keys()).toBe(["hello", "goodbye"]);
+    expect(hashmap.keys()).toEqual(["goodbye", "hello"]);
 });
 test("returns collisions correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("as", "world");
     hashmap.set("goodbye", "world");
-    expect(hashmap.keys()).toBe(["hello", "as", "goodbye"]);
+    expect(hashmap.keys()).toEqual(["goodbye", "hello", "as"]);
 });
 test("returns a message saying no keys", ()=>{
     const hashmap = new HashMap();
-    expect(hashmap.keys()).toBe("You Have No Keys.");
+    expect(hashmap.keys()).toEqual([]);
 });
 
 
