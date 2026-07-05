@@ -14,16 +14,21 @@ const hashmap = new HashMap();
 //setting+appending functions (make sure list works)
 hashmap.set("hello", "world");
 hashmap.set("as", "world");
+console.log(hashmap.set("goodbye", "moon"));
 // console.log(hashmap.set("hello", "second"));
 
 //getting function
 
 // console.log(hashmap.remove("hello"));
-// console.log(hashmap.set("goodbye", "moon"));
 
 
 //CLEARING FUNCTION
-hashmap.clear();
+// hashmap.clear();
+
 
 
 console.log(hashmap.print());
+
+console.log(hashmap.keys());
+console.log(hashmap.values());
+console.log(hashmap.entries());

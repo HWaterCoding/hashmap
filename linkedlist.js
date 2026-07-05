@@ -90,4 +90,13 @@ export default class LinkedList{
             currentNode = currentNode.next;
         }
     }
+
+    //forEach callback function to iterate every node
+    eachNode(callback){
+        let currentNode = this.head;
+        while(currentNode !== null){
+            callback(currentNode);
+            currentNode = currentNode.next;
+        }
+    }
 }

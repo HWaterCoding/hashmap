@@ -102,7 +102,13 @@ export default class HashMap{
     // returns an array containing every key contained within the hashmap
     keys(){
         const keys = [];
-
+        for(let i = 0; i < this.buckets.length; i++){
+            if(this.buckets[i] !== null){
+                
+            }
+        }
+        // if(keys.length === 0) return "You Have No Keys.";
+        return keys;
     }
 
     // returns an array containing every value contained within the hashmap
