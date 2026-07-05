@@ -102,11 +102,12 @@ export default class HashMap{
     // returns an array containing every key contained within the hashmap
     keys(){
 
-        for(let i = 0; i < this.buckets.length; i++){
-            if(this.buckets[i] !== null){
-                this.buckets[i].eachNode(node =>
+        const keys = [];
+        for(const bucket of this.buckets){
+            if(bucket !== null){
+                bucket.eachNode(node =>
                     keys.push(node.key)
-                );
+                )
             }
         }
 
