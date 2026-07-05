@@ -40,13 +40,7 @@ export default class LinkedList{
             return;
         }
 
-        let currentNode = this.head;
-
-        while(currentNode.next !== null){
-            currentNode = currentNode.next;
-        }
-
-        currentNode.next = newNode;
+        this.tail.next = newNode;
         this.tail = newNode;
     }
 
