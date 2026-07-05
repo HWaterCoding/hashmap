@@ -13,7 +13,7 @@ const hashmap = new HashMap();
 
 //setting+appending functions (make sure list works)
 hashmap.set("hello", "world");
-// hashmap.set("as", "world");
+hashmap.set("as", "world");
 // console.log(hashmap.set("goodbye", "moon"));
 // console.log(hashmap.set("hello", "second"));
 

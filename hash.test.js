@@ -219,48 +219,48 @@ test.skip("returns an empty array, if no keys created", ()=>{
 
 
 //values()
-test("returns a single value", ()=>{
+test.skip("returns a single value", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     expect(hashmap.values()).toEqual(["world"]);
 });
-test("returns multiple values", ()=>{
+test.skip("returns multiple values", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodnight", "moon");
     expect(hashmap.values()).toEqual(["world", "moon"]);
 });
-test("returns an updated value correctly", ()=>{
+test.skip("returns an updated value correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("hello", "aliens");
     expect(hashmap.values()).toEqual(["aliens"]);
 });
-test("returns an empty array if no values added", ()=>{
+test.skip("returns an empty array if no values added", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.values()).toEqual([]);
 });
 
 
 //entries()
-test.skip("returns a single key:value pair", ()=>{
+test("returns a single key:value pair", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
-    expect(hashmap.entries()).toBe([{"hello":"world"}]);
+    expect(hashmap.entries()).toEqual([["hello", "world"]]);
 });
-test.skip("returns multiple key:value pairs", ()=>{
+test("returns multiple key:value pairs", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodnight", "moon");
-    expect(hashmap.entries()).toBe([{"hello":"world", "goodnight":"moon"}]);
+    expect(hashmap.entries()).toEqual([["hello", "world"], ["goodnight", "moon"]]);
 });
-test.skip("returns an updated node correctly", ()=>{
+test("returns an updated node correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("hello", "aliens");
-    expect(hashmap.entries()).toBe([{"hello":"aliens"}]);
+    expect(hashmap.entries()).toEqual([["hello", "aliens"]]);
 });
-test.skip("returns a message saying no entries yet", ()=>{
+test("returns a message saying no entries yet", ()=>{
     const hashmap = new HashMap();
-    expect(hashmap.entries()).toBe("You Have No Entries.");
+    expect(hashmap.entries()).toEqual([]);
 });

@@ -133,6 +133,15 @@ export default class HashMap{
     entries(){
         const entries = [];
 
+        for(const bucket of this.buckets){
+            if(bucket !== null){
+                bucket.eachNode(node =>
+                    entries.push([node.key, node.value])
+                )
+            }
+        }
+
+        return entries;
     }
 }
 
