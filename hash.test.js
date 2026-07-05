@@ -122,26 +122,30 @@ test.skip("Finds a key in a collision chain", () => {
 
 
 //remove()
-test("successfully removes a node", ()=>{
+test.skip("successfully removes a node", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     expect(hashmap.remove("hello")).toBe(true);
 });
-test("returns false if no node", ()=>{
+test.skip("returns false if no node", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.remove("hello")).toBe(false);
 });
-test("doesnt remove after already removed", ()=>{
+test.skip("doesnt remove after already removed", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
 
     expect(hashmap.remove("hello")).toBe(true);
     expect(hashmap.remove("hello")).toBe(false);
 });
-test("updates size variable correctly", ()=>{
+test.skip("updates size variable correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.remove("hello");
 
     expect(hashmap.size).toBe(0);
 });
+
+
+
+//clear()

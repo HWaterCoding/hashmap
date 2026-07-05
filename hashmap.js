@@ -35,15 +35,13 @@ export default class HashMap{
 
     //takes an argument of a key and value and assigns the value to the key
     set(key, value){
-        //hash the key to create bucketIndex
+        
         const bucketIndex = this.hash(key);
 
-        //check if bucket empty. if empty, create linkedlist
         if(this.buckets[bucketIndex] === null){
             this.buckets[bucketIndex] = new LinkedList();
         }
 
-        //check if node with same key exists. if yes, rewrite value. if no, append node.
         const node = this.buckets[bucketIndex].find(key);
         if(node){
             node.value = value;
@@ -51,35 +49,25 @@ export default class HashMap{
             this.buckets[bucketIndex].append(key, value);
             this.size++;
         }
-
-        // remove this, just to check that it creates list/node properly
-        return this.buckets[bucketIndex];
     }
 
     //takes a key as an argument and returns the value 
     get(key){
-        //hash the key to determine which bucket it is in.
         const bucketIndex = this.hash(key);
-        //if bucket null return null
-        if(this.buckets[bucketIndex] === null) return null;
-        //check if that bucket contains the key you're looking for
-        const node = this.buckets[bucketIndex].find(key);
-        //if it DOES, return the value that's assigned to the key.
-        if(node){
-            return node.value
-        } 
-        
-        return null;
 
+        if(this.buckets[bucketIndex] === null) return null;
+
+        const node = this.buckets[bucketIndex].find(key);
+        
+        return node ? node.value : null;
     }
 
     //returns true or false based on whether the key passed in exists within the hashmap
     has(key){
-        //hash the key to determine which bucket it would be in.
         const bucketIndex = this.hash(key);
-        //go through the linked list in the bucket
+
         if(this.buckets[bucketIndex] === null) return false;
-        //check the key of every node in the bucket
+
         const node = this.buckets[bucketIndex].find(key);
         
         return node ? true: false;
