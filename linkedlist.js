@@ -12,6 +12,7 @@ class Node{
 export default class LinkedList{
     constructor(){
         this.head = null;
+        this.tail = null;
     }
 
     //convert linked list to string for debugging
@@ -35,6 +36,7 @@ export default class LinkedList{
         
         if(this.head === null){
             this.head = newNode;
+            this.tail = newNode;
             return;
         }
 
@@ -45,6 +47,7 @@ export default class LinkedList{
         }
 
         currentNode.next = newNode;
+        this.tail = newNode;
     }
 
     //looks for the key in the bucket
