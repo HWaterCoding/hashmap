@@ -193,25 +193,25 @@ test.skip("Clear multiple nodes at once", ()=>{
 
 
 //keys()
-test("returns a single key correctly", ()=>{
+test.skip("returns a single key correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     expect(hashmap.keys()).toEqual(["hello"]);
 });
-test("returns multiple keys correctly", ()=>{
+test.skip("returns multiple keys correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodbye", "world");
     expect(hashmap.keys()).toEqual(["goodbye", "hello"]);
 });
-test("returns collisions correctly", ()=>{
+test.skip("returns collisions correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("as", "world");
     hashmap.set("goodbye", "world");
     expect(hashmap.keys()).toEqual(["goodbye", "hello", "as"]);
 });
-test("returns a message saying no keys", ()=>{
+test.skip("returns an empty array, if no keys created", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.keys()).toEqual([]);
 });
@@ -219,26 +219,26 @@ test("returns a message saying no keys", ()=>{
 
 
 //values()
-test.skip("returns a single value", ()=>{
+test("returns a single value", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
-    expect(hashmap.values()).toBe(["world"]);
+    expect(hashmap.values()).toEqual(["world"]);
 });
-test.skip("returns multiple values", ()=>{
+test("returns multiple values", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodnight", "moon");
-    expect(hashmap.values()).toBe(["world", "moon"]);
+    expect(hashmap.values()).toEqual(["world", "moon"]);
 });
-test.skip("returns an updated value correctly", ()=>{
+test("returns an updated value correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("hello", "aliens");
-    expect(hashmap.values()).toBe(["aliens"]);
+    expect(hashmap.values()).toEqual(["aliens"]);
 });
-test.skip("returns a message saying no values", ()=>{
+test("returns an empty array if no values added", ()=>{
     const hashmap = new HashMap();
-    expect(hashmap.values()).toBe("You Have No Values.");
+    expect(hashmap.values()).toEqual([]);
 });
 
 

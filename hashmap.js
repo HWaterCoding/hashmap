@@ -111,7 +111,6 @@ export default class HashMap{
             }
         }
 
-        // if(keys.length === 0) return "You Have No Keys.";
         return keys;
     }
 
@@ -119,6 +118,15 @@ export default class HashMap{
     values(){
         const values = [];
 
+        for(const bucket of this.buckets){
+            if(bucket !== null){
+                bucket.eachNode(node =>
+                    values.push(node.value)
+                )
+            }
+        }
+
+        return values;
     }
 
     // returns an array containing every key:value pair contained within the hashmap
