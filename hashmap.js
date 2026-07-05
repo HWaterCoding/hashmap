@@ -9,6 +9,21 @@ export default class HashMap{
         this.size = 0;
     }
 
+    print(){
+        let result = "";
+
+        for(let i = 0; i < this.buckets.length; i++){
+            result += `Bucket ${i}: \n`;
+            if(this.buckets[i] === null) {
+                result += "null \n\n";
+            }
+            else{
+                result += this.buckets[i].toString() + "\n\n";
+            }
+        }
+        return result;
+    }
+
     //takes a key and produces a hashcode
     hash(key){
         let hashcode = 0;

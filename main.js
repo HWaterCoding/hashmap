@@ -14,9 +14,12 @@ console.log(hashmap.hash("hello")); //2
 //setting+appending functions (make sure list works)
 console.log(hashmap.set("hello", "world"));
 console.log(hashmap.set("as", "world"));
-// console.log(hashmap.set("hello", "second"));
+console.log(hashmap.set("hello", "second"));
 
 //getting function
 
-console.log(hashmap.remove("hello"));
-console.log(hashmap.set("goodbye", "moon"));
+// console.log(hashmap.remove("hello"));
+// console.log(hashmap.set("goodbye", "moon"));
+
+
+console.log(hashmap.print());

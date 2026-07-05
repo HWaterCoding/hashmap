@@ -13,6 +13,21 @@ export default class LinkedList{
     constructor(){
         this.head = null;
     }
+
+    //convert linked list to string for debugging
+    toString(){
+        let result = "";
+        let currentNode = this.head;
+
+        while(currentNode){
+            result += `{ ${currentNode.key} : ${currentNode.value} } => `;
+            currentNode = currentNode.next;
+        }
+
+        result += "null";
+
+        return result;
+    }
     
     //adds a key to the end of the linked list in a bucket
     append(key, value){
