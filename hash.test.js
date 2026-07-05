@@ -148,4 +148,32 @@ test.skip("updates size variable correctly", ()=>{
 
 
 
+//length()
+test("track a single appended value correctly", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    expect(hashmap.length()).toBe(1);
+});
+test("track multiple appended values correctly", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("goodbye", "world");
+    expect(hashmap.length()).toBe(2);
+});
+test("size doesn't increase on a rewritten key:value", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("hello", "aliens");
+    expect(hashmap.length()).toBe(1);
+});
+test("size properly decreases when key:value is removed", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("goodbye", "world");
+    hashmap.remove("hello");
+    expect(hashmap.length()).toBe(1);
+});
+
+
+
 //clear()
