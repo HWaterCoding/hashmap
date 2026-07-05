@@ -212,30 +212,48 @@ test("returns a message saying no keys", ()=>{
 
 
 //values()
-// test("", ()=>{
-
-// });
-// test("", ()=>{
-
-// });
-// test("", ()=>{
-
-// });
-// test("", ()=>{
-
-// });
+test("returns a single value", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    expect(hashmap.values()).toBe(["world"]);
+});
+test("returns multiple values", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("goodnight", "moon");
+    expect(hashmap.values()).toBe(["world", "moon"]);
+});
+test("returns an updated value correctly", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("hello", "aliens");
+    expect(hashmap.values()).toBe(["aliens"]);
+});
+test("returns a message saying no values", ()=>{
+    const hashmap = new HashMap();
+    expect(hashmap.values()).toBe("You Have No Values.");
+});
 
 
 //entries()
-// test("", ()=>{
-
-// });
-// test("", ()=>{
-
-// });
-// test("", ()=>{
-
-// });
-// test("", ()=>{
-
-// });
+test("returns a single key:value pair", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    expect(hashmap.entries()).toBe([{"hello":"world"}]);
+});
+test("returns multiple key:value pairs", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("goodnight", "moon");
+    expect(hashmap.entries()).toBe([{"hello":"world", "goodnight":"moon"}]);
+});
+test("returns an updated node correctly", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("hello", "aliens");
+    expect(hashmap.entries()).toBe([{"hello":"aliens"}]);
+});
+test("returns a message saying no entries yet", ()=>{
+    const hashmap = new HashMap();
+    expect(hashmap.entries()).toBe("You Have No Entries.");
+});
