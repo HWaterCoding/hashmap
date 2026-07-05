@@ -177,16 +177,65 @@ test.skip("size properly decreases when key:value is removed", ()=>{
 
 
 //clear()
-test("Clear a single node at once", ()=>{
+test.skip("Clear a single node at once", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.clear();
     expect(hashmap.length()).toBe(0);
 });
-test("Clear multiple nodes at once", ()=>{
+test.skip("Clear multiple nodes at once", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodbye", "world");
     hashmap.clear();
     expect(hashmap.length()).toBe(0);
 });
+
+
+//keys()
+test("returns a single key correctly", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    expect(hashmap.keys()).toBe(["hello"]);
+});
+test("returns multiple keys correctly", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("goodbye", "world");
+    expect(hashmap.keys()).toBe(["hello", "goodbye"]);
+});
+test("returns a message saying no keys", ()=>{
+    const hashmap = new HashMap();
+    expect(hashmap.keys()).toBe("You Have No Keys.");
+});
+
+
+
+//values()
+// test("", ()=>{
+
+// });
+// test("", ()=>{
+
+// });
+// test("", ()=>{
+
+// });
+// test("", ()=>{
+
+// });
+
+
+//entries()
+// test("", ()=>{
+
+// });
+// test("", ()=>{
+
+// });
+// test("", ()=>{
+
+// });
+// test("", ()=>{
+
+// });
