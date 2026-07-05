@@ -92,26 +92,28 @@ export default class HashMap{
     length(){
         return this.size;
     }
-
+    
     // removes ALL entries stored in the hashmap
     clear(){
-        //cant use hash values this time??
-        //create a loop to go through every bucket in the hashmap
-        //
+        this.buckets = new Array(this.capacity).fill(null);
+        this.size = 0;
     }
 
     // returns an array containing every key contained within the hashmap
     keys(){
+        const keys = [];
 
     }
 
     // returns an array containing every value contained within the hashmap
     values(){
+        const values = [];
 
     }
 
     // returns an array containing every key:value pair contained within the hashmap
     entries(){
+        const entries = [];
 
     }
 }
