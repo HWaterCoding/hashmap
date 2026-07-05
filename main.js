@@ -19,8 +19,9 @@ hashmap.set("as", "world");
 
 //getting function
 
-// console.log(hashmap.remove("hello"));
+hashmap.remove("as");
 
+hashmap.set("as", "world2");
 
 //CLEARING FUNCTION
 // hashmap.clear();
@@ -29,6 +30,6 @@ hashmap.set("as", "world");
 
 console.log(hashmap.print());
 
-console.log(hashmap.keys());
-console.log(hashmap.values());
-console.log(hashmap.entries());
+// console.log(hashmap.keys());
+// console.log(hashmap.values());
+// console.log(hashmap.entries());

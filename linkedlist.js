@@ -72,6 +72,10 @@ export default class LinkedList{
 
         if (this.head.key === key) {
             this.head = this.head.next;
+
+            if(this.head === null){
+                this.tail = null;
+            }
             return;
         }
 
@@ -81,6 +85,9 @@ export default class LinkedList{
         while(currentNode !== null){
             if(currentNode.key === key){
                 previousNode.next = currentNode.next;
+                if(currentNode === this.tail){
+                    this.tail = previousNode;
+                }
                 return;
             }
             previousNode = currentNode;
