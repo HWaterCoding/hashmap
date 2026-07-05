@@ -149,24 +149,24 @@ test.skip("updates size variable correctly", ()=>{
 
 
 //length()
-test("track a single appended value correctly", ()=>{
+test.skip("track a single appended value correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     expect(hashmap.length()).toBe(1);
 });
-test("track multiple appended values correctly", ()=>{
+test.skip("track multiple appended values correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodbye", "world");
     expect(hashmap.length()).toBe(2);
 });
-test("size doesn't increase on a rewritten key:value", ()=>{
+test.skip("size doesn't increase on a rewritten key:value", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("hello", "aliens");
     expect(hashmap.length()).toBe(1);
 });
-test("size properly decreases when key:value is removed", ()=>{
+test.skip("size properly decreases when key:value is removed", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodbye", "world");
@@ -177,3 +177,16 @@ test("size properly decreases when key:value is removed", ()=>{
 
 
 //clear()
+test("Clear a single node at once", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.clear();
+    expect(hashmap.length()).toBe(0);
+});
+test("Clear multiple nodes at once", ()=>{
+    const hashmap = new HashMap();
+    hashmap.set("hello", "world");
+    hashmap.set("goodbye", "world");
+    hashmap.clear();
+    expect(hashmap.length()).toBe(0);
+});

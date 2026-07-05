@@ -35,7 +35,7 @@ export default class HashMap{
 
     //takes an argument of a key and value and assigns the value to the key
     set(key, value){
-        
+
         const bucketIndex = this.hash(key);
 
         if(this.buckets[bucketIndex] === null){
@@ -95,7 +95,9 @@ export default class HashMap{
 
     // removes ALL entries stored in the hashmap
     clear(){
-
+        //cant use hash values this time??
+        //create a loop to go through every bucket in the hashmap
+        //
     }
 
     // returns an array containing every key contained within the hashmap
