@@ -26,10 +26,10 @@ hashmap.set("as", "world2");
 //CLEARING FUNCTION
 // hashmap.clear();
 
+// console.log(hashmap.keys());
+// console.log(hashmap.values());
+console.log(hashmap.entries());
 
 
 console.log(hashmap.print());
 
-// console.log(hashmap.keys());
-// console.log(hashmap.values());
-// console.log(hashmap.entries());

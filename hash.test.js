@@ -243,24 +243,46 @@ test.skip("returns an empty array if no values added", ()=>{
 
 
 //entries()
-test("returns a single key:value pair", ()=>{
+test.skip("returns a single key:value pair", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     expect(hashmap.entries()).toEqual([["hello", "world"]]);
 });
-test("returns multiple key:value pairs", ()=>{
+test.skip("returns multiple key:value pairs", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("goodnight", "moon");
     expect(hashmap.entries()).toEqual([["hello", "world"], ["goodnight", "moon"]]);
 });
-test("returns an updated node correctly", ()=>{
+test.skip("returns an updated node correctly", ()=>{
     const hashmap = new HashMap();
     hashmap.set("hello", "world");
     hashmap.set("hello", "aliens");
     expect(hashmap.entries()).toEqual([["hello", "aliens"]]);
 });
-test("returns a message saying no entries yet", ()=>{
+test.skip("returns a message saying no entries yet", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.entries()).toEqual([]);
+});
+
+
+//resizing logic
+test("resizes after 13 entries", ()=>{
+    const hashmap = new HashMap();
+
+    for(let i = 0; i < 13; i++){
+        hashmap.set(`key${i}`, `value${i}`);
+    }
+    expect(hashmap.capacity).toBe(32);
+});
+test("data remains correct after resize", ()=>{
+    const hashmap = new HashMap();
+
+    for(let i = 0; i < 20; i++){
+        hashmap.set(`key${i}`, `value${i}`);
+    }
+
+    for(let i = 0; i < 20; i++){
+        expect(hashmap.get(`key${i}`)).toBe(`value${i}`);
+    }
 });

@@ -49,6 +49,24 @@ export default class HashMap{
             this.buckets[bucketIndex].append(key, value);
             this.size++;
         }
+
+        //capacity increase
+        if(this.size / this.capacity >= this.loadFactor){
+            this.resize();
+        }
+    }
+
+    resize(){
+        const entries = this.entries();
+
+        this.capacity *= 2;
+        this.buckets = new Array(this.capacity).fill(null);
+
+        this.size = 0;
+
+        entries.forEach(([key, value]) =>{
+            this.set(key, value);
+        })
     }
 
     //takes a key as an argument and returns the value 
@@ -147,6 +165,3 @@ export default class HashMap{
 
 
 //I think this will break the hashmap by creating new indexes.
-// if(this.size / this.capacity >= this.loadFactor){
-//     this.capacity *= 2;
-// }
