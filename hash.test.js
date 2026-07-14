@@ -1,7 +1,6 @@
 //testing file
 import HashMap from "./hashmap.js";
 
-
 //hashing function:
 test.skip("hashes a single character", ()=>{
     const hashmap = new HashMap();
@@ -17,7 +16,6 @@ test.skip("different output for a string with the same characters", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.hash("olHes")).toBe(9);
 });
-
 
 
 //set()
@@ -71,7 +69,6 @@ test.skip("handles collision properly", ()=>{
 });
 
 
-
 //get()
 test.skip("get() returns correct value", ()=>{
     const hashmap = new HashMap();
@@ -89,8 +86,6 @@ test.skip("returns null if key doesn't exist", ()=>{
     hashmap.set("goodbye", "world");
     expect(hashmap.get("hello")).toBe(null);
 });
-
-
 
 
 //has()
@@ -120,7 +115,6 @@ test.skip("Finds a key in a collision chain", () => {
 });
 
 
-
 //remove()
 test.skip("successfully removes a node", ()=>{
     const hashmap = new HashMap();
@@ -145,7 +139,6 @@ test.skip("updates size variable correctly", ()=>{
 
     expect(hashmap.size).toBe(0);
 });
-
 
 
 //length()
@@ -173,7 +166,6 @@ test.skip("size properly decreases when key:value is removed", ()=>{
     hashmap.remove("hello");
     expect(hashmap.length()).toBe(1);
 });
-
 
 
 //clear()
@@ -215,7 +207,6 @@ test.skip("returns an empty array, if no keys created", ()=>{
     const hashmap = new HashMap();
     expect(hashmap.keys()).toEqual([]);
 });
-
 
 
 //values()

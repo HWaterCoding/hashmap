@@ -1,35 +1,71 @@
-//main file to run tests
 import HashMap from "./hashmap.js";
 
 const hashmap = new HashMap();
 
 //see outputs here::
 
-//hashing function
+//hash() function
 // console.log(hashmap.hash("hello")); //2
 // console.log(hashmap.hash("as")); //2
 // console.log(hashmap.hash("leloh")); //12
 // console.log(hashmap.hash("goodbye")); //12
 
-//setting+appending functions (make sure list works)
-hashmap.set("hello", "world");
-hashmap.set("as", "world");
-// console.log(hashmap.set("goodbye", "moon"));
-// console.log(hashmap.set("hello", "second"));
+//set() function
+//initial bucket population
+hashmap.set('apple', 'red');
+hashmap.set('banana', 'yellow');
+hashmap.set('carrot', 'orange');
+hashmap.set('dog', 'brown');
+hashmap.set('elephant', 'gray');
+hashmap.set('frog', 'green');
+hashmap.set('grape', 'purple');
+hashmap.set('hat', 'black');
+hashmap.set('ice cream', 'white');
+hashmap.set('jacket', 'blue');
+hashmap.set('kite', 'pink');
+hashmap.set('lion', 'golden');
 
-//getting function
+//overwriting values
+hashmap.set('banana', 'brown');
+hashmap.set('dog', 'husky');
+hashmap.set('kite', 'dead');
 
-hashmap.remove("as");
+//exceed load factor (SHOULD DOUBLE CAPACITY)
+hashmap.set('moon', 'silver')
 
-hashmap.set("as", "world2");
+//second overwriting values
+hashmap.set('banana', 'green');
+hashmap.set('dog', 'dalmatian');
+hashmap.set('kite', 'beheaded');
 
-//CLEARING FUNCTION
+
+//get() function
+console.log(hashmap.get("dog")); //dalmatian
+
+//has() function
+console.log(hashmap.has("dog")); //true
+console.log(hashmap.has("cat")); //false
+
+
+//remove() function
+hashmap.remove("dog");
+
+//length() function
+console.log(hashmap.length()); 
+
+//clear() function
 // hashmap.clear();
 
-// console.log(hashmap.keys());
-// console.log(hashmap.values());
+//keys() function
+console.log(hashmap.keys());
+
+//values() function
+console.log(hashmap.values());
+
+// entries() function
 console.log(hashmap.entries());
 
 
-console.log(hashmap.print());
 
+//Print the entire map
+console.log(hashmap.print());

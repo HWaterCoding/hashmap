@@ -7,8 +7,6 @@ class Node{
 }
 
 
-    //I should also store this.tail to make appending O(1) --> right now O(n)
-    //right now I have to loop through the entire list to append.
 export default class LinkedList{
     constructor(){
         this.head = null;
@@ -54,16 +52,6 @@ export default class LinkedList{
             currentNode = currentNode.next;
         }
         return null;
-    }
-
-    //will I actually need this?
-    contains(key){
-        let currentNode = this.head;
-        while(currentNode !== null){
-            if(currentNode.key === key) return true;
-            currentNode = currentNode.next;
-        }
-        return false;
     }
 
     //removes a key from a bucket

@@ -2,7 +2,7 @@ import LinkedList from "./linkedlist.js";
 
 export default class HashMap{
     
-    constructor(loadFactor = 0.8, capacity = 16){
+    constructor(loadFactor = 0.75, capacity = 16){
         this.loadFactor = loadFactor;
         this.capacity = capacity;
         this.buckets = new Array(capacity).fill(null);
@@ -51,7 +51,7 @@ export default class HashMap{
         }
 
         //capacity increase
-        if(this.size / this.capacity >= this.loadFactor){
+        if(this.size / this.capacity > this.loadFactor){
             this.resize();
         }
     }
@@ -102,7 +102,6 @@ export default class HashMap{
             this.size--;
             return true;
         }
-
         return false;
     }
 
@@ -128,7 +127,6 @@ export default class HashMap{
                 )
             }
         }
-
         return keys;
     }
 
@@ -162,6 +160,3 @@ export default class HashMap{
         return entries;
     }
 }
-
-
-//I think this will break the hashmap by creating new indexes.
